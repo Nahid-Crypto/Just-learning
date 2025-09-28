@@ -1,0 +1,98 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #94a3b8;
+  --accent: #7c3aed;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 12px;
+  --gap: 16px;
+  --max-width: 1100px;
+  --text: #e6eef8;
+}
+
+/* Light theme vars will be toggled via data-theme attribute on body */
+:root[data-theme="light"]{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #4b5563;
+  --accent: #4f46e5;
+  --glass: rgba(10,10,10,0.03);
+  --text: #0b1220;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg) 0%, color-mix(in srgb, var(--bg) 90%, black) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* container */
+.container{max-width:var(--max-width);margin:0 auto;padding:20px}
+
+/* Topbar */
+.topbar{backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;gap:12px;align-items:center}
+.logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#06b6d4);display:flex;align-items:center;justify-content:center;font-weight:700}
+.brand-text h1{margin:0;font-size:1rem}
+.tag{margin:0;font-size:0.75rem;color:var(--muted)}
+
+/* nav */
+.nav{display:flex;gap:8px;align-items:center}
+.search{min-width:220px;padding:8px 12px;border-radius:10px;border:0;background:var(--card);color:var(--text);box-shadow:var(--glass) 0 2px 6px inset}
+.btn{background:transparent;color:var(--text);border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;cursor:pointer}
+.btn.small{padding:6px 8px;font-size:0.85rem}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#06b6d4);border:0;color:white}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06)}
+
+/* hero */
+.hero{display:flex;gap:24px;align-items:center;padding:40px 20px}
+.hero-left{flex:1}
+.hero-right{flex:1;display:flex;justify-content:flex-end}
+.hero h2{font-size:2rem;margin:0 0 10px}
+.hero p{margin:0 0 18px;color:var(--muted)}
+
+.showcase-card{width:320px;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 6px 24px rgba(2,6,23,0.6)}
+.showcase-card img{width:100%;display:block;height:160px;object-fit:cover}
+.showcase-info{padding:12px}
+.showcase-info h3{margin:4px 0}
+.meta{display:flex;gap:8px;margin-top:8px}
+
+/* grid */
+.cards-grid .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.card{background:var(--card);border-radius:12px;padding:12px;overflow:hidden}
+.card img{width:100%;height:220px;object-fit:cover;border-radius:8px}
+.card .title{font-weight:600;margin:8px 0}
+.card .sub{color:var(--muted);font-size:0.9rem}
+.card .actions{display:flex;gap:8px;margin-top:10px}
+
+/* chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;padding:10px 0}
+.chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:var(--card);cursor:pointer}
+
+/* footer */
+.footer{padding:24px 0;color:var(--muted);text-align:center}
+
+/* overlay & modal */
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(2,6,23,0.6),rgba(2,6,23,0.8));z-index:60}
+.hidden{display:none}
+.modal{width:90%;max-width:980px;background:var(--card);border-radius:12px;padding:10px 12px;box-shadow:0 30px 60px rgba(2,6,23,0.7)}
+.modal.video{max-width:900px}
+.close{float:right;border:0;background:transparent;font-size:1.6rem;color:var(--text);cursor:pointer}
+
+/* reader */
+.reader-toolbar{display:flex;gap:12px;align-items:center;padding:8px 0;color:var(--muted)}
+.reader-viewport{display:flex;gap:12px;overflow:auto;padding:12px}
+.reader-viewport img{max-height:70vh;border-radius:8px;transform-origin:center;}
+
+/* small screens */
+@media (max-width:780px){
+  .hero{flex-direction:column;align-items:flex-start}
+  .hero-right{width:100%;order:2}
+  .search{min-width:120px}
+}

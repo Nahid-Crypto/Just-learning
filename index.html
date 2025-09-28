@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Manga & Anime Hub</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">
+        <div class="logo">MAH</div>
+        <div class="brand-text">
+          <h1>Manga & Anime Hub</h1>
+          <p class="tag">Read • Watch • Discover</p>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <input id="search" class="search" placeholder="Search manga or anime..." />
+        <button id="themeToggle" class="btn small">Dark</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-left">
+        <h2>Discover new series today</h2>
+        <p>Fast reader, comfy watch mode, curated recommendations — all in one place.</p>
+        <div class="cta-row">
+          <button class="btn primary" id="openDiscover">Explore Featured</button>
+          <button class="btn ghost" id="openLatest">Latest Releases</button>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="showcase-card">
+          <img src="https://images.unsplash.com/photo-1601758123927-7c5a9f2d0b5f?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="showcase" loading="lazy">
+          <div class="showcase-info">
+            <h3>Featured: Phantom Blade</h3>
+            <p>Action • Fantasy • Ongoing</p>
+            <div class="meta">
+              <button class="btn small" data-watch="true" data-src="https://www.w3schools.com/html/mov_bbb.mp4">Watch Trailer</button>
+              <button class="btn small outline" data-read="true" data-id="m1">Read Sample</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container cards-grid" aria-label="Top picks">
+      <h2 class="section-title">Top Picks</h2>
+      <div id="cards" class="grid">
+        <!-- JS will inject cards here -->
+      </div>
+    </section>
+
+    <section class="container categories">
+      <h2 class="section-title">Browse by Category</h2>
+      <div class="chips">
+        <button class="chip" data-filter="all">All</button>
+        <button class="chip" data-filter="action">Action</button>
+        <button class="chip" data-filter="romance">Romance</button>
+        <button class="chip" data-filter="fantasy">Fantasy</button>
+        <button class="chip" data-filter="slice">Slice of Life</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Manga & Anime Hub — Demo site. Images are placeholders.</p>
+    </div>
+  </footer>
+
+  <!-- Reader Modal -->
+  <div id="readerModal" class="overlay hidden" aria-hidden="true">
+    <div class="modal reader">
+      <button class="close" data-close>&times;</button>
+      <div class="reader-toolbar">
+        <button id="prevPage" class="btn small">Prev</button>
+        <span id="pageIndicator">1 / 1</span>
+        <button id="nextPage" class="btn small">Next</button>
+        <label class="zoom">
+          <input id="zoomRange" type="range" min="50" max="200" value="100"> Zoom
+        </label>
+      </div>
+      <div id="readerViewport" class="reader-viewport">
+        <!-- pages injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="overlay hidden" aria-hidden="true">
+    <div class="modal video">
+      <button class="close" data-close>&times;</button>
+      <video id="player" controls playsinline preload="metadata" style="width:100%;height:auto;">
+        <!-- src set by JS -->
+      </video>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
